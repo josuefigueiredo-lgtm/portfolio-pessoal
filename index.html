@@ -123,6 +123,19 @@ nav ul.open{display:flex}nav ul a{padding:.9rem .5rem;font-size:1rem;border-radi
 .grid4,.pgrid,.lgrid,.steps{grid-template-columns:1fr}.lc.big{grid-column:auto}
 .btn{flex:1 1 100%;justify-content:center}.scroll{display:none}dialog{padding:1.4rem}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.in,.rv{opacity:1;transform:none}}
+
+.cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -143,7 +156,7 @@ nav ul.open{display:flex}nav ul a{padding:.9rem .5rem;font-size:1rem;border-radi
 </div></section>
 
 <section id="sobre"><div class="wrap about">
-<figure class="foto rv" style="margin:0"><img src="7bf1a866-3022-449a-9d1b-d61687f61c94.jpg" alt="Retrato de Josué Rodrigo (o autor da página), de óculos, barba e camisa branca com azul-marinho" width="560" height="560"><figcaption>Josué Rodrigo Evangelista Figueirêdo</figcaption></figure>
+<figure class="foto rv" style="margin:0"><img src="7bf1a866-3022-449a-9d1b-d61687f61c94.png" alt="Retrato de Josué Rodrigo (o autor da página), de óculos, barba e camisa branca com azul-marinho" width="560" height="560"><figcaption>Josué Rodrigo Evangelista Figueirêdo</figcaption></figure>
 <div>
 <p class="eyebrow rv">Sobre</p>
 <h2 class="rv">Entre a educação e a tecnologia.</h2>
@@ -195,7 +208,7 @@ nav ul.open{display:flex}nav ul a{padding:.9rem .5rem;font-size:1rem;border-radi
 <div class="btns rv" id="contacts"></div>
 </div></section>
 </main>
-<footer><div class="wrap"><span>© <span id="ano"></span> Josué Rodrigo</span><span>Feito com código, curiosidade e café.</span></div></footer>
+<footer><div class="wrap"><span>© <span id="ano"></span> Josué Rodrigo</span><span>Feito com código, curiosidade e muito, mais muito café.</span></div></footer>
 
 <dialog id="dlg" aria-labelledby="dt"><button class="x" aria-label="Fechar" id="dx">✕</button><div id="dbody"></div></dialog>
 
@@ -203,9 +216,9 @@ nav ul.open{display:flex}nav ul a{padding:.9rem .5rem;font-size:1rem;border-radi
 /* ============ CONFIGURAÇÃO — EDITE AQUI ============ */
 // Links de contato: deixe "" para exibir "em breve". Preencha com a URL completa.
 const PERFIL = {
-  github:   "",   // ex.: "https://github.com/seu-usuario"
-  linkedin: "",   // ex.: "https://www.linkedin.com/in/seu-perfil"
-  email:    ""    // ex.: "seu@email.com"
+  github:   "https://github.com/josuefigueiredo-lgtm",   // ex.: "https://github.com/seu-usuario"
+  linkedin: "https://www.linkedin.com/in/josue-figueiredo/",   // ex.: "https://www.linkedin.com/in/seu-perfil"
+  email:    "josuerodrigo.jr80@gmail.com"    // ex.: "seu@email.com"
 };
 
 // Competências (sem níveis inventados)
@@ -218,8 +231,8 @@ const COMPETENCIAS = {
 
 // Projetos profissionais/educacionais. Preencha demo/repo quando existirem (senão aparece "Em desenvolvimento").
 const PROJETOS = [
-  { titulo:"Assistente Pedagógico SENAI", tag:"IA · Documentos",
-    descricao:"Aplicação web voltada à geração automatizada de roteiros de estudo semanais, utilizando inteligência artificial e documentos de referência pedagógica para apoiar o planejamento docente.",
+  { titulo:"Assistente Pedagógico SENAI", imagem:"imagens/repositorio.png",
+    descricao:"Aplicação web voltada à geração automatizada de roteiros de estudo semanais, utilizando inteligência artificial e documentos de referência pedagógica para apoiar no roteiro de aula quinzenal do docente.",
     destaque:"Integração entre inteligência artificial, documentos de referência e automação de tarefas pedagógicas.",
     tecnologias:["JavaScript","Node.js","Express","Python","Flask","OpenAI API","Documentos Word"], demo:"https://assistente-repositorio-sesi-senai-1.onrender.com/", repo:"" },
   { titulo:"Ferramentas Educacionais Interativas", tag:"Jogos · Educação",
@@ -267,12 +280,32 @@ $("#ano").textContent = new Date().getFullYear();
 $("#skills").innerHTML = Object.entries(COMPETENCIAS).map(([k,v]) =>
   `<div class="card rv"><h3>${esc(k)}</h3>${chips(v)}</div>`).join("");
 
-/* projetos profissionais */
-$("#pro").innerHTML = PROJETOS.map(p => `
-  <article class="card proj rv"><div class="cover"><span>${esc(p.tag)}</span></div>
-  <div class="pb"><h3>${esc(p.titulo)}</h3><p>${esc(p.descricao)}</p><p class="dest">${esc(p.destaque)}</p>${chips(p.tecnologias)}
-  <div class="btns">${link(p.demo,"Ver projeto","pri")}${link(p.repo,"Repositório")}${(!p.demo && !p.repo) ? '<span class="btn off">Em desenvolvimento</span>' : ""}</div></div></article>`).join("");
+/* projetos profissionais */$("#pro").innerHTML = PROJETOS.map(p => `
+  <article class="card proj rv">
 
+    <div class="cover">
+      <img
+        src="${esc(p.imagem)}"
+        alt="${esc(p.titulo)}"
+      >
+    </div>
+
+    <div class="pb">
+      <h3>${esc(p.titulo)}</h3>
+      <p>${esc(p.descricao)}</p>
+      <p class="dest">${esc(p.destaque)}</p>
+
+      ${chips(p.tecnologias)}
+
+      <div class="btns">
+        ${link(p.demo, "Ver projeto", "pri")}
+        ${link(p.repo, "Repositório")}
+        ${(!p.demo && !p.repo) ? '<span class="btn off">Em desenvolvimento</span>' : ""}
+      </div>
+    </div>
+
+  </article>
+`).join("");
 /* laboratório */
 let filtro = "todos";
 $("#filters").innerHTML = Object.entries(CATEGORIAS).map(([k,v]) => `<button data-c="${k}" aria-pressed="${k==="todos"}">${v}</button>`).join("");
@@ -288,7 +321,7 @@ function renderLab(){
     </button>` : `
     <div class="card lc ph item" style="animation-delay:${i*60}ms"><span class="st">${CATEGORIAS[p.categoria]}</span><h3>${esc(p.nome)}</h3><p>${esc(p.resumo)}</p></div>`).join("")
     || `<p class="lead">Nenhum projeto nesta categoria ainda.</p>`;
-  $("#hint").textContent = real ? "" : "// Novos projetos entram editando a lista LAB no código.";
+  $("#hint").textContent = real ? "" : "";
 }
 $("#filters").addEventListener("click", e => {
   const b = e.target.closest("button"); if(!b) return;
