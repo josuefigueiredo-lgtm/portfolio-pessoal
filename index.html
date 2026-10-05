@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Josué Rodrigo — Educação, sistemas e IA</title>
-<meta name="description" content="Portfólio de Josué Rodrigo, professor de Desenvolvimento de Sistemas e desenvolvedor de soluções digitais, conectando educação, programação e inteligência artificial.">
+<meta name="description" content="Portfólio de Josué Rodrigo, professor de Desenvolvimento de Sistemas, de Matemática e de robôtica, além de desenvolvedor de soluções digitais, conectando educação e programação.">
 <meta property="og:title" content="Josué Rodrigo — Educação, sistemas e IA">
 <meta property="og:description" content="Professor de Desenvolvimento de Sistemas e desenvolvedor de soluções digitais.">
 <meta name="theme-color" content="#0b0d10">
@@ -12,6 +12,40 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+.contato-grid{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2.5rem;
+}
+.contato-texto{ flex:1; max-width:640px; }
+.contato-texto .lead{ margin-bottom:0; }
+
+.contato-icones{
+  display:flex;
+  gap:1rem;
+  flex-shrink:0;
+}
+.contato-icones a{
+  width:56px;
+  height:56px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1.5px solid currentColor;
+  color:inherit;
+  transition:transform .2s, background .2s, color .2s;
+}
+.contato-icones a svg{ width:26px; height:26px; }
+.contato-icones a:hover{
+  transform:translateY(-4px);
+  background:currentColor;
+}
+.contato-icones a:hover svg{ color:#fff; mix-blend-mode:difference; }
+
+@media (max-width:700px){
+  .contato-grid{ flex-direction:column; align-items:flex-start; }
+}
 :root{--bg:#0b0d10;--bg2:#12151a;--line:#232830;--tx:#f4f6f8;--mu:#9aa3ae;--ac:#3b82ff;--ac2:#5ce1ff;--r:14px;
 --f:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--m:'JetBrains Mono',ui-monospace,Menlo,monospace;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -160,10 +194,10 @@ nav ul.open{display:flex}nav ul a{padding:.9rem .5rem;font-size:1rem;border-radi
 <div>
 <p class="eyebrow rv">Sobre</p>
 <h2 class="rv">Entre a educação e a tecnologia.</h2>
-<p class="rv">Sou <strong>professor de Desenvolvimento de Sistemas</strong> no contexto SENAI/SESI, formado em Matemática e Análise e desenvolvimento de Sistemas, com atuação no ensino técnico e na educação básica. Em sala, planejo aulas e situações de aprendizagem alinhadas à metodologia SENAI, trabalhando atualmente com o ensiso de HTML, CSS, JavaScript, Node.js, Express, APIs REST, MySQL, JAVA, fundamentos de UI/UX, entre outros. Atualmente, trabalho como docente nos cursos técnicos de desenvolvimento web, de aplicativos e robótica.</p>
+<p class="rv">Sou <strong>professor de Desenvolvimento de Sistemas</strong> no contexto SENAI/SESI, formado em Matemática e Análise e desenvolvimento de Sistemas, com atuação no ensino técnico e na educação básica. Em sala, planejo aulas e situações de aprendizagem alinhadas à metodologia SENAI, trabalhando atualmente com o ensino de HTML, CSS, JavaScript, Node.js, Express, APIs REST, MySQL, JAVA, fundamentos de UI/UX, entre outros. Atualmente, trabalho como docente nos cursos técnicos de desenvolvimento web, de aplicativos e robótica.</p>
 <p class="rv">Fora dela, faço o que peço aos alunos: <strong>construo</strong>. Ferramentas para o auxílio dos docentes, jogos e aplicações que tornam a programação mais acessível. Além disso, protótipos com IA generativa. Ensinar e desenvolver se conectam: cada problema real da sala de aula vira um pequeno sistema, e cada sistema vira aula.</p>
 <div class="pilares rv">
-<div class="card"><span class="n">01</span><h3>Educação</h3><p>Compartilhar conhecimento e orientar projetos, de iniciação científica à robótica educacional.</p></div>
+<div class="card"><span class="n">01</span><h3>Educação</h3><p>Compartilhar conhecimento e orientar projetos de iniciação científica à robótica educacional.</p></div>
 <div class="card"><span class="n">02</span><h3>Sistemas</h3><p>Desenvolver aplicações web e soluções digitais que resolvem problemas concretos.</p></div>
 <div class="card"><span class="n">03</span><h3>IA e automação</h3><p>Experimentar, integrar e automatizar para ampliar o que uma pessoa consegue fazer.</p></div>
 </div>
@@ -177,19 +211,11 @@ nav ul.open{display:flex}nav ul a{padding:.9rem .5rem;font-size:1rem;border-radi
 </div></section>
 
 <section id="projetos"><div class="wrap">
-<p class="eyebrow rv">Projetos profissionais e educacionais</p>
+<p class="eyebrow rv">Projetos profissionais, educacionais e pessoais</p>
 <h2 class="rv">Projetos que conectam conhecimento e tecnologia.</h2>
 <div class="pgrid" id="pro"></div>
 </div></section>
 
-<section id="lab"><div class="wrap">
-<p class="eyebrow rv">Projetos pessoais</p>
-<h2 class="rv">Laboratório de ideias.</h2>
-<p class="lead rv">Projetos que nascem da curiosidade, da experimentação e da vontade de construir algo novo.</p>
-<div class="filters rv" role="group" aria-label="Filtrar projetos" id="filters"></div>
-<div class="lgrid" id="lab-grid" aria-live="polite"></div>
-<p class="hint" id="hint"></p>
-</div></section>
 
 <section id="processo"><div class="wrap">
 <p class="eyebrow rv">Processo</p><h2 class="rv">Como transformo ideias em projetos.</h2>
@@ -201,12 +227,44 @@ nav ul.open{display:flex}nav ul a{padding:.9rem .5rem;font-size:1rem;border-radi
 </div>
 <p class="note rv">Um fluxo de trabalho, não uma regra: cada projeto pede o seu ritmo.</p>
 </div></section>
+<section id="contato">
+  <div class="wrap contato-grid">
 
-<section id="contato"><div class="wrap">
-<p class="eyebrow rv">Contato</p><h2 class="rv">Vamos construir algo juntos?</h2>
-<p class="lead rv" style="margin-bottom:2rem">Se você quer conversar sobre projetos, desenvolvimento web, educação tecnológica ou possibilidades de colaboração, será um prazer trocar ideias.</p>
-<div class="btns rv" id="contacts"></div>
-</div></section>
+    <div class="contato-texto">
+      <p class="eyebrow rv">Contato</p>
+      <h2 class="rv">Vamos construir algo juntos?</h2>
+      <p class="lead rv">Se você quer conversar sobre projetos, desenvolvimento web, educação tecnológica ou possibilidades de colaboração, será um prazer trocar ideias.</p>
+    </div>
+
+    <div class="contato-icones rv" id="contacts">
+      <!-- Instagram -->
+      <a href="https://instagram.com/josue.rodrigo" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+
+      <!-- E-mail -->
+      <a href="mailto:josuerodrigo.jr80@gmail.com" aria-label="E-mail" title="E-mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="M3 7l9 6 9-6"/>
+        </svg>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/5577981216929" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21l1.65-4.86A8.5 8.5 0 1 1 8 19.4L3 21z"/>
+          <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8c-.8-.4-1.6-1.2-2-2l.8-1-1-2L9 9.5z" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
 </main>
 <footer><div class="wrap"><span>© <span id="ano"></span> Josué Rodrigo</span><span>Feito com código, curiosidade e muito, mais muito café.</span></div></footer>
 
